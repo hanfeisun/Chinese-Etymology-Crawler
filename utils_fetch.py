@@ -215,12 +215,12 @@ def fetch_img(char):
     return _fetch_img_of_character(char, save_to_folder, not_found)
 
 if __name__=="__main__":
-    # pool = Pool(thread_count)
-    # pool.map(fetch_img, characters)
-    # pool.close()
-    # pool.join()
-    # for c in characters:
-    #     fetch_img(c)
+    pool = Pool(thread_count)
+    pool.map(fetch_img, characters)
+    pool.close()
+    pool.join()
+    for c in characters:
+        fetch_img(c)
 
     _remove_empty_characters(save_to_folder, not_analyzed_file_name)
     _write_not_found(not_found_file_name, not_found)
